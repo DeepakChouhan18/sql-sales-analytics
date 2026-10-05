@@ -8,3 +8,6 @@ WHERE city = 'Delhi';
 SELECT *
 FROM products
 WHERE price > 3000;
+
+SELECT COUNT(*) AS total_customers
+FROM customers;
