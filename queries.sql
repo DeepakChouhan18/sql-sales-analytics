@@ -45,3 +45,13 @@ JOIN products
     ON order_items.product_id = products.product_id
 WHERE orders.status = 'Completed'
 GROUP BY customers.name;
+SELECT
+    products.product_name,
+    SUM(order_items.quantity * products.price) AS total_revenue
+FROM products
+JOIN order_items
+    ON products.product_id = order_items.product_id
+JOIN orders
+    ON order_items.order_id = orders.order_id
+WHERE orders.status = 'Completed'
+GROUP BY products.product_name;
