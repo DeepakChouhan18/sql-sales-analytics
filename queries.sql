@@ -55,3 +55,10 @@ JOIN orders
     ON order_items.order_id = orders.order_id
 WHERE orders.status = 'Completed'
 GROUP BY products.product_name;
+SELECT
+    customers.name,
+    COUNT(orders.order_id) AS total_orders
+FROM customers
+JOIN orders
+    ON customers.customer_id = orders.customer_id
+GROUP BY customers.name;
