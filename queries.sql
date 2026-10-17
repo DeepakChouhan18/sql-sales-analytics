@@ -1,4 +1,4 @@
-SELECT * 
+SELECT *
 FROM customers;
 
 SELECT *
@@ -45,6 +45,7 @@ JOIN products
     ON order_items.product_id = products.product_id
 WHERE orders.status = 'Completed'
 GROUP BY customers.name;
+
 SELECT
     products.product_name,
     SUM(order_items.quantity * products.price) AS total_revenue
@@ -55,6 +56,7 @@ JOIN orders
     ON order_items.order_id = orders.order_id
 WHERE orders.status = 'Completed'
 GROUP BY products.product_name;
+
 SELECT
     customers.name,
     COUNT(orders.order_id) AS total_orders
@@ -70,14 +72,6 @@ FROM customers
 LEFT JOIN orders
     ON customers.customer_id = orders.customer_id;
 
-SELECT
-    customers.name,
-    COUNT(orders.order_id) AS total_orders
-FROM customers
-JOIN orders
-    ON customers.customer_id = orders.customer_id
-GROUP BY customers.name
-HAVING COUNT(orders.order_id) > 1;
 SELECT
     customers.name,
     COUNT(orders.order_id) AS total_orders
