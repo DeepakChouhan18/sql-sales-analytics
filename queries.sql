@@ -78,3 +78,11 @@ JOIN orders
     ON customers.customer_id = orders.customer_id
 GROUP BY customers.name
 HAVING COUNT(orders.order_id) > 1;
+SELECT
+    customers.name,
+    COUNT(orders.order_id) AS total_orders
+FROM customers
+JOIN orders
+    ON customers.customer_id = orders.customer_id
+GROUP BY customers.name
+HAVING COUNT(orders.order_id) > 1;
